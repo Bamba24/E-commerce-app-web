@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Utilisateur {
+  id             String           @id @default(uuid())
+  nom            String
+  email          String           @unique
+  motDePasse     String
+  role           Role             @default(UTILISATEUR)
+  creeLe         DateTime         @default(now())
+  commandes      Commande[]
+}
+
+model Commande {
+  id             String           @id @default(uuid())
+  utilisateur    Utilisateur      @relation(fields: [utilisateurId], references: [id])
+  utilisateurId  String
+  prixTotal      Float
+  statut         StatutCommande   @default(EN_ATTENTE)
+  creeLe         DateTime         @default(now())
+  articles       ArticleCommande[]
+}
+
+model ArticleCommande {
+  id            String    @id @default(uuid())
+  commande      Commande  @relation(fields: [commandeId], references: [id])
+  commandeId    String
+
+  produitId     String
+  nomProduit    String
+  imageProduit  String
+  prix          Float
+  quantite      Int
+}
+
+enum Role {
+  UTILISATEUR
+  ADMIN
+}
+
+enum StatutCommande {
+  EN_ATTENTE
+  PAYEE
+  EXPEDIEE
+  ANNULEE
+}
+

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 14 Pro",
+    "image": "/images/Iphones/iphone_14.jpg",
+    "prix": 1299,
+    "rating": 5,
+    "categorie": "iphone",
+    "inStock": true,
+    "slug": "iphone-14-pro",
+    "description": "Le dernier iPhone 14 Pro avec écran Super Retina XDR et appareil photo avancé.",
+    "quantite": 120
+  },
+  {
+    "id": 2,
+    "name": "Casque Bose 700",
+    "image": "/images/casques/Casque_Bose_700.jpeg",
+    "prix": 7000,
+    "rating": 4,
+    "categorie": "alcatel",
+    "inStock": true,
+    "slug": "casque-bose-700",
+    "description": "Casque sans fil Bose 700 avec réduction de bruit active et son de haute qualité.",
+    "quantite": 1
+  },
+  {
+    "id": 3,
+    "name": "Clé USB 128Go",
+    "image": "/images/cle_usb.jpeg",
+    "prix": 19,
+    "rating": 4,
+    "categorie": "samsung",
+    "inStock": false,
+    "slug": "cle-usb-128go",
+    "description": "Clé USB 128Go rapide et compacte pour stocker tous vos fichiers.",
+    "quantite": 5
+  }
+]
