@@ -5,6 +5,7 @@ import Image from "next/image";
 import { toast } from "mui-sonner";
 import { useRouter } from "next/navigation";
 import axios from "axios"; // ✅ Import Axios
+import EmptyCard from "@/app/components/produits/EmptyCard"; // Import your empty cart illustration
 
 // Définition des types
 type Article = {
@@ -62,7 +63,7 @@ export default function Panier() {
         toast.success("Merci pour votre commande !");
         window.dispatchEvent(new Event("panierUpdated"));
 
-      } catch (error: any) {
+      } catch (error) {
         
         console.error("Erreur lors de la commande :", error);
         router.push('/login')
@@ -75,10 +76,9 @@ export default function Panier() {
   return (
     <>
       <div className="container py-5">
-        <h1 className="mb-4">🛒 Votre panier</h1>
 
         {panier.length === 0 ? (
-          <p>Votre panier est vide.</p>
+          <EmptyCard />
         ) : (
           <div className="row">
             <div className="col-md-8">

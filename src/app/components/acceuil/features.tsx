@@ -15,7 +15,7 @@ export default function Features() {
           <h2 className="fw-bold text-center">Pourquoi choisir ElectroShop ?</h2>
           <p className="text-muted text-center">
             Nous vous proposons des produits de qualité, un service client irréprochable, 
-            et une livraison rapide. Nous allons ajouter d'autres avantages ici juste pour que le paragraphe soit plus long.
+            et une livraison rapide. Nous allons ajouter d&apos;autres avantages ici juste pour que le paragraphe soit plus long.
           </p>
         </div>
       </div>

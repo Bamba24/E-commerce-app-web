@@ -1,20 +1,21 @@
 import Image from "next/image";
 import products from "../data.json"; 
+import AddToCartButton from "./components/AddToCartButton";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 
-export default function ArticlePage({ params }: Props) {
-  const product = products.find((p) => p.slug === params.slug);
+export default async function ArticlePage({ params }: Props) {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
 
   if (!product) {
     return <div className="container py-5">Produit introuvable.</div>;
   }
 
   return (
-    <>
     <div className="container py-5">
       <div className="row g-5">
         {/* Image */}
@@ -51,13 +52,14 @@ export default function ArticlePage({ params }: Props) {
             {product.inStock ? (
               <span className="text-success">En stock</span>
             ) : (
-              <span className="text-danger">  Rupture de stock</span>
+              <span className="text-danger">Rupture de stock</span>
             )}
           </p>
+
+          {/* Bouton Ajouter au panier */}
+          <AddToCartButton product={product} />
         </div>
       </div>
     </div>
-    </>
   );
 }
-

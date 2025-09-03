@@ -8,7 +8,11 @@ import axios from "axios";
 
 export default function DashBord(){
 
-  const [utilisateur, setUtilisateur] = useState(null);
+  const [utilisateur, setUtilisateur] = useState({
+    nom: "Jean Dupont",
+    email: "jean.dupont@email.com",
+  });
+
   const router = useRouter();
 
   useEffect(()=>{
@@ -21,7 +25,7 @@ export default function DashBord(){
            .then((response)=>{
             setUtilisateur(response.data.utilisateur)
            })
-           .catch((error)=>{
+           .catch(()=>{
             router.push('/login')
            })
 
@@ -31,10 +35,6 @@ export default function DashBord(){
 
   }, []);
 
-  const utilisateur1 = {
-    nom: "Jean Dupont",
-    email: "jean.dupont@email.com",
-  };
 
   const commandes = [
     { id: "CMD001", date: "2025-05-10", total: 129.99, statut: "Livrée" },
@@ -49,8 +49,8 @@ export default function DashBord(){
 
       {/* Informations utilisateur */}
       <div className="mb-4 p-4 bg-light rounded shadow-sm">
-        <h4 className="mb-2">Bienvenue, {utilisateur1.nom}</h4>
-        <p className="mb-0 text-muted">{utilisateur1.email}</p>
+        <h4 className="mb-2">Bienvenue, {utilisateur.nom}</h4>
+        <p className="mb-0 text-muted">{utilisateur.email}</p>
       </div>
 
       {/* Statistiques rapides */}

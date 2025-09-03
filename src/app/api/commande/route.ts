@@ -55,10 +55,10 @@ export async function POST(req: NextRequest) {
   );
 
 
-  } catch (error: any) {
+  } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { message: 'Erreur serveur ou token invalide', error: error.message },
+      { message: 'Erreur serveur ou token invalide', error },
       { status: 500 }
     );
   }

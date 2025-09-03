@@ -46,7 +46,7 @@ export default function RegisterPage() {
 
         {/* Bloc droit : Formulaire de connexion */}
         <div className="col-md-6 bg-white p-5 d-flex flex-column justify-content-center">
-          <h2 className="mb-4 fw-bold text-primary">S'inscrire</h2>
+          <h2 className="mb-4 fw-bold text-primary">S&apos;inscrire</h2>
 
           <form onSubmit={handleSubmit}>
 

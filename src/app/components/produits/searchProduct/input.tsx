@@ -1,12 +1,29 @@
 import React, { useState, useEffect, useMemo } from "react";
+// ou définis le type dans un fichier commun
 
-export default function InputSearch({ state, onSearch }: { state: any[], onSearch: (res: any[]) => void }) {
+type produit = {
+  id: number;
+  name: string;
+  image: string;
+  prix: number;
+  rating: number;
+  categorie: string;
+  inStock: boolean;
+  slug: string;
+  description?: string;
+}
+
+interface InputSearchProps {
+  state: produit[];
+  onSearch: (res: produit[]) => void;
+}
+
+export default function InputSearch({ state, onSearch }: InputSearchProps) {
   const [searchBar, setSearchBar] = useState('');
 
   const filtrerTab = useMemo(() => {
-    return state.filter((user) => {
-      const nomProduit = user.name.toLowerCase();
-      return nomProduit.includes(searchBar.toLowerCase());
+    return state.filter((item) => {
+      return item.name.toLowerCase().includes(searchBar.toLowerCase());
     });
   }, [state, searchBar]);
 

@@ -30,7 +30,7 @@ export default function HeroTelephones() {
     // Definition des variables d'etat
     const [state, setState] = useState<produit[]>([]);
     const [filtrer, setFiltrer] = useState<produit[]>([]);
-    const [currentOption, setCurrentOption] = useState('all');
+    const [, setCurrentOption] = useState('all');
      
     // Utilisation d'use Effect pour definir les elements du tableau (products)
     useEffect(()=>{
@@ -146,8 +146,8 @@ export default function HeroTelephones() {
 
       <select className="form-select w-25 ms-3" onChange={handleSelect}>
         <option value="prix">Prix</option>
-        <option value='prix croissant' onClick={handleClick}>Prix croissant</option>
-        <option value='prix decroissant' onClick={handleClick}>Prix decroissant</option>
+        <option value='prix croissant'>Prix croissant</option>
+        <option value='prix decroissant'>Prix decroissant</option>
       </select>
     </div>
 
